@@ -1,2 +1,2 @@
-add_lunch_combo omni_a10s-userdebug
-add_lunch_combo omni_a10s-eng
+add_lunch_combo omni_m10lte-userdebug
+add_lunch_combo omni_m10lte-eng
