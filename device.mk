@@ -15,5 +15,5 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/a10s
+LOCAL_PATH := device/samsung/m10lte
 
