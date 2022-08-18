@@ -28,7 +28,7 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 #$(call inherit-product, vendor/twrp/config/gsm.mk)
 
 PRODUCT_COPY_FILES += \
-     $(LOCAL_PATH)/zImage:kernel \
+     $(LOCAL_PATH)/zImage:zImage \
      $(LOCAL_PATH)/dt.img:dt.img \
      $(LOCAL_PATH)/dt.img:boot.img
 
