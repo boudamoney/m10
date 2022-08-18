@@ -27,6 +27,11 @@ $(call inherit-product, device/samsung/m10lte/device.mk)
 $(call inherit-product, vendor/omni/config/common.mk)
 $(call inherit-product, vendor/omni/config/gsm.mk)
 
+PRODUCT_COPY_FILES += \
+     $(LOCAL_PATH)/zImage:kernel \
+     $(LOCAL_PATH)/dt.img:dt.img \
+     $(LOCAL_PATH)/dt.img:boot.img
+
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := m10lte
 PRODUCT_NAME := omni_m10lte
