@@ -101,6 +101,7 @@ TW_USE_NEW_MINADBD := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/13600000.usb/13600000.dwc3/gadget/lun%d/file"
 PLATFORM_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
+TW_MTP_DEVICE := "/dev/usb_mtp_gadget"
 LZMA_RAMDISK_TARGETS := recovery
 
 BOARD_CUSTOM_BOOTIMG_MK :=  device/samsung/m10lte/bootimg.mk
