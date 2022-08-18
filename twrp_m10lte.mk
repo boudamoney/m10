@@ -15,29 +15,33 @@
 # limitations under the License.
 #
 
-# Inherit from those products. Most specific first.
-$(call inherit-product-if-exists, $(SRC_TARGET_DIR)/product/embedded.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+DEVICE_PATH := device/samsung/m10lte
 
-# Inherit from a10s device
-$(call inherit-product, device/samsung/m10lte/device.mk)
+# Release name
+PRODUCT_RELEASE_NAME := m10lte
 
-# Inherit some common Omni stuff.
+# Inherit from common AOSP config
+$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
+
+# Inherit some common TWRP stuff.
 $(call inherit-product, vendor/twrp/config/common.mk)
-#$(call inherit-product, vendor/twrp/config/gsm.mk)
 
-PRODUCT_COPY_FILES += \
-     $(LOCAL_PATH)/zImage:zImage \
-     $(LOCAL_PATH)/dt.img:dt.img \
-     $(LOCAL_PATH)/dt.img:boot.img
+# Inherit device configuration
+$(call inherit-product, $(DEVICE_PATH)/device.mk)
 
-# Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := m10lte
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images
+    $(LOCAL_PATH)/zImage:zImage \
+    $(LOCAL_PATH)/dt.img:dt.img \
+    $(LOCAL_PATH)/dt.img:boot.img
+
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(DEVICE_PATH)/recovery/root,recovery/root)
+
+## Device identifier. This must come after all inclusions
 PRODUCT_NAME := twrp_m10lte
+PRODUCT_DEVICE := m10lte
+PRODUCT_MODEL := SM-M105G
 PRODUCT_BRAND := samsung
-PRODUCT_MODEL := Galaxy M10
-
-# Resolution
-TARGET_SCREEN_WIDTH := 720
-TARGET_SCREEN_HEIGHT := 1520
+PRODUCT_MANUFACTURER := samsung
+PRODUCT_GMS_CLIENTID_BASE := android-samsung
