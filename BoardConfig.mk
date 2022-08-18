@@ -44,7 +44,7 @@ TW_INCLUDE_FBE := true
 
 # Platform
 TARGET_BOARD_PLATFORM := exynos5
-TARGET_BOARD_PLATFORM_GPU := mali-t830
+TARGET_BOARD_PLATFORM_GPU := mali-t830mp1
 
 # File systems
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2566914048 # This is the estimated size of system image
