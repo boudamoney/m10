@@ -37,6 +37,15 @@ TARGET_BOOTLOADER_BOARD_NAME := SRPSA09A008RU
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
+# Crypto
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO_SAMSUNG := true
+TW_INCLUDE_FBE := true
+
+# Platform
+TARGET_BOARD_PLATFORM := exynos5
+TARGET_BOARD_PLATFORM_GPU := mali-t830m
+
 # File systems
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2566914048 # This is the estimated size of system image
 BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432 # This is the estimated size of boot image
@@ -92,3 +101,6 @@ TW_USE_NEW_MINADBD := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/13600000.usb/13600000.dwc3/gadget/lun%d/file"
 PLATFORM_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
+LZMA_RAMDISK_TARGETS := recovery
+
+BOARD_CUSTOM_BOOTIMG_MK :=  device/samsung/j7xelte/bootimg.mk
