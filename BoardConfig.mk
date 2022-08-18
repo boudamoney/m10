@@ -52,9 +52,9 @@ TARGET_COPY_OUT_VENDOR := vendor
 # Kernel
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
-TARGET_PREBUILT_KERNEL := device/samsung/m10lte/prebuilt/zImage
+TARGET_PREBUILT_KERNEL := device/samsung/m10lte/zImage
 
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt device/samsung/m10lte/prebuilt/dt.img --board SRPSA09A008RU
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt device/samsung/m10lte/dt.img --board SRPSA09A008RU
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/m10lte/bootimg.mk
 BOARD_KERNEL_IMAGE_NAME := zImage
 TARGET_KERNEL_ARCH := arm64
