@@ -15,42 +15,30 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/samsung/a10s
+DEVICE_PATH := device/samsung/m10lte
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
 
 # Architecture
-TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-a
-TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := cortex-a53
-TARGET_CPU_SMP := true
-
 TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv8-a
+TARGET_2ND_ARCH_VARIANT := armv7-a-neon
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
 TARGET_USES_64_BIT_BINDER := true
 
-# Misc
-ENABLE_CPUSETS := true
-ENABLE_SCHEDBOOST := true
-
 # Assert
-TARGET_OTA_ASSERT_DEVICE := a10s,a10sxx
+TARGET_OTA_ASSERT_DEVICE := m10lte,m10ltedx
 
 # Bootloader
-TARGET_SOC := mt6765
-TARGET_BOOTLOADER_BOARD_NAME := S96116CA1
+TARGET_SOC := exynos7870
+TARGET_BOOTLOADER_BOARD_NAME := SRPSA09A008RU
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
-TARGET_USES_UEFI := true
 
 # File systems
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 6853492736 # This is the estimated size of system image
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2566914048 # This is the estimated size of system image
 BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432 # This is the estimated size of boot image
 BOARD_HAS_LARGE_FILESYSTEM := true
 #BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432 # This is the maximum known partition size, but it can be higher, so we just omit it
@@ -62,29 +50,17 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Kernel
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/zImage
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo
-BOARD_INCLUDE_RECOVERY_DTBO := true
-BOARD_INCLUDE_BOOTIMG_DTB := true
-BOARD_BOOTIMG_HEADER_VERSION := 2
-BOARD_KERNEL_BASE := 0x40078000
+BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_RAMDISK_OFFSET := 0x11a88000
-BOARD_KERNEL_TAGS_OFFSET := 0x07808000
-BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
-BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
-BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
-BOARD_MKBOOTIMG_ARGS += --recovery_dtbo $(BOARD_PREBUILT_DTBOIMAGE)
-BOARD_CUSTOM_BOOTIMG_MK := device/samsung/a10s/bootimg.mk
+TARGET_PREBUILT_KERNEL := device/samsung/m10lte/prebuilt/zImage
+
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt device/samsung/m10lte/prebuilt/dt.img --board SRPSA09A008RU
+BOARD_CUSTOM_BOOTIMG_MK := device/samsung/m10lte/bootimg.mk
 BOARD_KERNEL_IMAGE_NAME := zImage
 TARGET_KERNEL_ARCH := arm64
 # TARGET_KERNEL_HEADER_ARCH := arm64
-# TARGET_KERNEL_SOURCE := kernel/samsung/a10s
-# TARGET_KERNEL_CONFIG := a10s_defconfig
+# TARGET_KERNEL_SOURCE := kernel/samsung/m10lte
+# TARGET_KERNEL_CONFIG := m10lte_defconfig
 
 # System as root
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
@@ -93,10 +69,7 @@ AB_OTA_UPDATER := false
 
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
-TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
-
-# VNDK
-BOARD_VNDK_VERSION := current
+TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
 
 # TWRP specific build flags
 RECOVERY_VARIANT := twrp
@@ -116,7 +89,6 @@ TW_INCLUDE_NTFS_3G := true
 TW_EXCLUDE_TWRPAPP := true
 TW_EXTRA_LANGUAGES := true
 TW_USE_NEW_MINADBD := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/kernel/config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file"
-TW_EXCLUDE_DEFAULT_USB_INIT := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/13600000.usb/13600000.dwc3/gadget/lun%d/file"
 PLATFORM_SECURITY_PATCH := 2099-12-31
-PLATFORM_VERSION := 10.0
+PLATFORM_VERSION := 16.1.0
