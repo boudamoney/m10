@@ -25,7 +25,7 @@ $(call inherit-product, device/samsung/m10lte/device.mk)
 
 # Inherit some common Omni stuff.
 $(call inherit-product, vendor/twrp/config/common.mk)
-$(call inherit-product, vendor/twrp/config/gsm.mk)
+#$(call inherit-product, vendor/twrp/config/gsm.mk)
 
 PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/zImage:kernel \
