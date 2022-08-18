@@ -17,7 +17,7 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product-if-exists, $(SRC_TARGET_DIR)/product/embedded.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Inherit from a10s device
@@ -34,7 +34,7 @@ PRODUCT_COPY_FILES += \
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := m10lte
-PRODUCT_NAME := omni_m10lte
+PRODUCT_NAME := twrp_m10lte
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := Galaxy M10
 
