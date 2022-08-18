@@ -16,4 +16,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-     $(LOCAL_DIR)/omni_m10lte.mk
+     $(LOCAL_DIR)/twrp_m10lte.mk
