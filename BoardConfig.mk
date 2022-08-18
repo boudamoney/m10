@@ -103,4 +103,4 @@ PLATFORM_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
 LZMA_RAMDISK_TARGETS := recovery
 
-BOARD_CUSTOM_BOOTIMG_MK :=  device/samsung/j7xelte/bootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK :=  device/samsung/m10lte/bootimg.mk
