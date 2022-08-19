@@ -32,6 +32,7 @@ $(call inherit-product, $(DEVICE_PATH)/device.mk)
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images
+    $(LOCAL_PATH)/dt.img:dt.img
     $(LOCAL_PATH)/dt.img:boot.img
 
 PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(DEVICE_PATH)/recovery/root,recovery/root)
