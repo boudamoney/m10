@@ -32,7 +32,7 @@ $(call inherit-product, $(DEVICE_PATH)/device.mk)
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images
-    $(LOCAL_PATH)/zImage:kernel \
+    $(LOCAL_PATH)/Image:kernel \
     $(LOCAL_PATH)/dt.img:dt.img \
     $(LOCAL_PATH)/dt.img:boot.img
 
