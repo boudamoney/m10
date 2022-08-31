@@ -14,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
+COMMON_LUNCH_CHOICES += twrp_m10lte-eng
+COMMON_LUNCH_CHOICES += twrp_m10lte-userdebug
 PRODUCT_MAKEFILES := \
      $(LOCAL_DIR)/twrp_m10lte.mk
