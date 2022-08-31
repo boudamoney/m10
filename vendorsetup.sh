@@ -1,2 +1,0 @@
-add_lunch_combo twrp_m10lte-userdebug
-add_lunch_combo twrp_m10lte-eng
